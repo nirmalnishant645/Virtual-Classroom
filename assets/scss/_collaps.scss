@@ -1,0 +1,56 @@
+  
+/* collapse */
+.collapse-wrapper{
+    .card {
+        border: 0em;
+        border-radius: 0;
+        // background: #fff;
+    }
+    .card:last-child {
+        margin-bottom: 0px;
+    }
+    .card-header {
+        padding: 0;
+        border-radius: 0;
+        background: none;
+        border: 0;
+        a {
+            font-size: 16px;
+            padding: 20px 15px 20px 41px;
+            color: #506072;
+            display: block;
+            text-decoration: none;
+            border-bottom: 1px solid #EFEFEF !important;
+
+            
+        }
+        a.btn-link {
+            color: $theme-color;
+        }
+        a.collapsed {
+            color: #010A44;
+        }
+        h2 {
+            a.collapsed::after {
+                content: "\e61a";
+                font-weight: 800;
+                color: $theme-color;
+            }
+            a::after {
+                position: absolute;
+                top: 22px;
+                font-size: 15px;
+                color: $theme-color;
+                left: 8px;
+                font-weight: 600;
+                
+                content: "\e622";
+                font-family: 'themify';
+            }
+        }
+    }
+    .card-body {
+        background: #fff;
+        padding: 20px 38px;
+    }
+}

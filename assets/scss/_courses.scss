@@ -1,0 +1,130 @@
+.courses-area{
+    .properties{
+        margin: 0 15px;
+        &.properties2{
+           margin-bottom: 30px;
+        }
+        &__card{
+            box-shadow: 0px 6px 6px 0px rgba(2, 25, 65, 0.08);
+            border-radius: 10px;
+             @include transition(.4s);
+            &:hover{
+                box-shadow: 0px 8px 8px 0px rgba(2,25,65,0.08);    
+            }
+        }
+        &__img{
+            img{
+                width: 100%;
+                border-radius: 10px 10px 0 0 ;
+                position: relative;
+            }
+        }
+        &__caption{
+            padding: 29px 20px 20px 20px;
+            h3{
+                font-size: 20px;
+                font-weight: 500;
+                margin-bottom: 6px;
+                
+                @media #{$lg}{
+                    font-size: 16px;
+                }
+                a{
+                    text-decoration: underline transparent;
+                    &:hover{
+                        text-decoration: underline;
+                        color: $heading-color;
+                     }
+                }
+            }
+            P{
+                color: #6E7697;
+                & span{
+                    color:$theme-color;
+                    font-size: 16px;
+                    @media #{$md}{
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+        &__footer{
+            margin-bottom: 22px;
+             @include transition(.4s);
+             @media #{$xs}{
+                padding: 19px 10px 20px 12px;
+             }
+            .restaurant-name{
+                p{
+                    display: inline-block;
+                    color: #6E7697;
+                    span{
+                        color:#FF7B2E ;
+                        font-size: 12px;
+                    }
+                }
+            }
+            .price{
+                span{
+                    cursor: pointer;
+                    font-weight: 700;
+                    color: #4255A4;
+                    font-size: 23px;
+                }
+            }
+        }
+        &:hover{
+            .border-btn2{
+                color:#fff;
+                background: $btn_bg;
+                @include transition(.4s);
+            }
+        }
+    }
+}
+
+.rating {
+    i {
+        font-size: 14px;
+        color: #FF7B2E;
+    }
+}
+
+// Arrow
+.courses-actives{
+    button{
+        &.slick-arrow {
+            position: absolute;
+            border: 0;
+            padding: 0;
+            z-index: 2;
+            cursor: pointer;
+            top: 50%;
+            transform: translateY(-50%);
+            left: auto;
+            background: none;
+            i{
+                font-size: 20px;
+                color: $theme-color;
+                @include transition(.2s);
+                &:hover{
+                    color: $heading-color;
+                }
+            }
+        }
+        &.slick-prev {
+            left: -58px;
+            i{
+                color: #ddd;
+            }
+        }
+        &.slick-next {
+            right: -58px;
+            i{
+                color: #ddd;
+            }
+        }
+    }
+    
+}
+
