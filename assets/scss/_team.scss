@@ -1,0 +1,102 @@
+.team-area{
+    .single-cat{
+        margin: 0 15px;
+        @include transition(.4s);
+        z-index: 1;
+        .cat-icon{
+            img{
+                margin: 0 auto;
+                margin-bottom: 30px;
+            }
+        }
+        .cat-cap{
+            span{
+                color: #6785FF;
+                font-size: 46px;
+                font-weight: 600;
+                margin-bottom: 10px;
+                display: block;
+            }
+            h5{
+             & > a{
+                font-size: 24px;
+                font-weight: 600;
+                margin-bottom: 14px;
+                display: block;
+                @include transition(.2s);
+                text-transform: capitalize;
+                color: #4255A4;
+                @media #{$sm}{
+                    font-size: 21px;
+                }
+                @media #{$xs}{
+                    font-size: 23px;
+                }
+              }
+            }
+            p{
+                color: #57667e;
+                font-size: 16px;
+                @include transition(.2s);
+                margin: 0;
+                @media #{$sm}{
+                    font-size: 15px;
+
+                }
+            }
+            a{
+                color: #1c165c;
+                font-size: 16px;
+                font-weight: 600;
+                @include transition(.2s);
+            }
+        }
+        // Hover Effect In single 
+        &:hover{
+            .cat-cap{
+                h5{
+                    color: #000;
+                }
+
+            }
+       }
+    }
+}
+// Arrow
+.team-active{
+    button{
+        &.slick-arrow {
+            position: absolute;
+            border: 0;
+            padding: 0;
+            z-index: 2;
+            cursor: pointer;
+            top: 50%;
+            transform: translateY(-50%);
+            left: auto;
+            background: none;
+            i{
+                font-size: 20px;
+                color: $theme-color;
+                @include transition(.2s);
+                &:hover{
+                    color: $heading-color;
+                }
+            }
+        }
+        &.slick-prev {
+            left: -58px;
+            i{
+                color: #ddd;
+            }
+        }
+        &.slick-next {
+            right: -58px;
+            i{
+                color: #ddd;
+            }
+        }
+    }
+    
+}
+

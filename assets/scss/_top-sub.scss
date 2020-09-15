@@ -1,0 +1,92 @@
+
+.topic-area{
+    .single-topic{
+        position: relative;
+        &::before{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            content: "";
+            background-color: rgba(66, 85, 164,.7);
+            opacity: 0;
+            z-index: 1;
+            @include transition(.4s);
+            border-radius: 12px;
+        }
+        &:hover{
+            &::before{
+                opacity: 1;
+                visibility:visible;
+                }
+        }
+        // img
+        .topic-img{
+            img{
+                width: 100%;
+
+            }
+            border-radius: 12px;
+        }
+        // Caption
+        .topic-content-box {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            transform: translateY(-50%);
+            height: 100%;
+            width: 100%;
+            transition: .4s;
+            z-index: 2;
+            .topic-content {
+                position: absolute;
+                top: 53%;
+                transform: translateY(-47%);
+                left: 0;
+                right: 0;
+                text-align: center;
+                h3 {
+                    
+                    a{
+                        color: #ffffff;
+                        font-weight: 700;
+                        font-size: 20px;
+                        margin-bottom: 0px;
+                        text-transform: uppercase;
+                        text-decoration: underline #fff transparent;
+                        @include transition(.4s);
+                        // @media #{$laptop}{
+                        //     font-size: 25px;
+                        // }
+                        // @media #{$xs}{
+                        //     font-size: 25px;
+                        // }
+                        // @media #{$md}{
+                        //     font-size: 25px;
+                        // }
+                        &:hover{
+                            text-decoration: underline;
+                        }
+                    }
+
+                }
+                p{
+                    font-size: 16px;
+                    color: #ffff;
+                    padding: 0 82px;
+                    line-height: 1.6;
+                    @media #{$xs}{
+                        padding: 0 18px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
