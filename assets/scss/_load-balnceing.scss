@@ -1,0 +1,25 @@
+ 
+    .single-features {
+        display: flex;
+        .features-icon{
+            img {
+                display: block;
+            }
+        }
+        .features-caption {
+            padding-left: 19px;
+            h3 {
+                font-size: 25px;
+                line-height: 1.2;
+                margin-bottom: 16px;
+                font-weight: 400;
+            }
+            p {
+                font-size: 15px;
+                line-height: 1.8;
+            }
+        }
+        
+    }
+
+

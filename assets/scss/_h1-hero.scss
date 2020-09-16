@@ -1,0 +1,193 @@
+// Home Page Hero
+.slider-height {
+    min-height: 854px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    @media #{$lg} {
+        min-height: 700px;
+    }
+    @media #{$md} {
+        min-height: 650px;
+    }
+    @media #{$sm} {
+        min-height: 650px;
+    }
+    @media #{$xs} {
+        min-height: 600px;
+    }
+}
+
+.slider-height2 {
+    min-height: 400px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    @media #{$sm} {
+        min-height: 320px;
+    }
+    @media #{$xs} {
+        min-height: 320px;
+    }
+}
+
+.slider-height3 {
+    min-height: 588px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    @media #{$lg} {
+        min-height: 400px;
+    }
+    @media #{$md} {
+        min-height: 500px;
+    }
+    @media #{$sm} {
+        min-height: 308px;
+    }
+    @media #{$xs} {
+        min-height: 308px;
+    }
+}
+
+.slider-area,
+.slider-area2 {
+    background-image: url(../img/hero/h1_hero.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    // min-height: 854px;
+    &.slider-area2 {
+        background-image: url(../img/hero/hero2.png);
+    }
+    .hero__caption {
+        overflow: hidden;
+        // padding-top: 230px;
+        // @media #{$xs}{
+        //     padding-top: 130px;
+        // }
+        // @media #{$sm}{
+        //     padding-top: 130px;
+        // }
+        // @media #{$md}{
+        //     padding-top: 160px;
+        // }
+        span {
+            color: #31ff7a;
+            font-size: 60px;
+            line-height: 1.2;
+            font-weight: 400;
+            margin-bottom: 30px;
+            display: block;
+            @media #{$xs} {
+                margin-bottom: 30px;
+                font-size: 56px;
+            }
+        }
+        h1 {
+            font-size: 60px;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.3;
+            margin-bottom: 22px;
+            @media #{$lg} {
+                font-size: 60px;
+                line-height: 1.2;
+            }
+            @media #{$md} {
+                font-size: 50px;
+                line-height: 1.2;
+            }
+            @media #{$sm} {
+                font-size: 38px;
+                line-height: 1.2;
+                margin-bottom: 20px;
+            }
+            @media #{$xs} {
+                font-size: 28px;
+                line-height: 1.2;
+                margin-bottom: 20px;
+            }
+        }
+        p {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 34px;
+            @media #{$xs} {
+                font-size: 16px;
+                padding: 0 0px;
+            }
+        }
+        &.hero__caption2 {
+            padding-top: 218px;
+            @media #{$xs} {
+                padding-top: 184px;
+            }
+            @media #{$sm} {
+                padding-top: 184px;
+            }
+        }
+    }
+}
+
+.project-screen {
+    margin-top: -500px;
+    @media #{$lg} {
+        margin-top: -416px;
+    }
+    @media #{$md} {
+        margin-top: -361px;
+    }
+    @media #{$sm} {
+        margin-top: -331px;
+    }
+    @media #{$xs} {
+        margin-top: -140px;
+    }
+}
+
+// Hero Overly
+.hero-overly {
+    position: relative;
+    z-index: 1;
+    &::before {
+        position: absolute;
+        content: "";
+        background-color: rgba(0, 1, 2, .4);
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 0;
+        background-repeat: no-repeat;
+    }
+}
+
+.hero-overly2 {
+    position: relative;
+    z-index: 1;
+    &::before {
+        position: absolute;
+        content: "";
+        background-color: rgba(0, 0, 50, .7);
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 0;
+        background-repeat: no-repeat;
+    }
+}
+
+// Transparent Header
+.header-transparent {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 9;
+}
