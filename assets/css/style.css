@@ -126,11 +126,16 @@
     opacity: 0.9
 }
 
+html {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 body {
     font-family: "Mulish", sans-serif;
     font-weight: normal;
     font-style: normal;
-    font-size: 16px
+    font-size: 16px;
 }
 
 h1,
@@ -2983,10 +2988,10 @@ hr {
 }
 
 .slider-height {
-    min-height: 854px;
+    min-height: 700px;
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: cover
+    background-size: cover;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -3020,18 +3025,6 @@ hr {
     background-size: cover
 }
 
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-    .slider-height2 {
-        min-height: 320px
-    }
-}
-
-@media (max-width: 575px) {
-    .slider-height2 {
-        min-height: 320px
-    }
-}
-
 .slider-height3 {
     min-height: 588px;
     background-repeat: no-repeat;
@@ -3039,36 +3032,12 @@ hr {
     background-size: cover
 }
 
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-    .slider-height3 {
-        min-height: 400px
-    }
-}
-
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-    .slider-height3 {
-        min-height: 500px
-    }
-}
-
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-    .slider-height3 {
-        min-height: 308px
-    }
-}
-
-@media (max-width: 575px) {
-    .slider-height3 {
-        min-height: 308px
-    }
-}
-
 .slider-area,
 .slider-area2 {
     background-image: url(../img/hero/h1_hero.png);
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center center
+    background-position: center center;
 }
 
 .slider-area.slider-area2,
