@@ -4533,6 +4533,10 @@ hr {
     margin: 20px 0
 }
 
+.request {
+    padding-left: 5%;
+}
+
 .login-form .form-input label {
     font-size: 18px;
     font-weight: 600;
@@ -6471,15 +6475,15 @@ del {
     padding-left: 30px
 }
 
-.progress-table .country {
+.progress-table .name {
     width: 28.07%
 }
 
-.progress-table .visit {
+.progress-table .roll_no {
     width: 19.74%
 }
 
-.progress-table .percentage {
+.progress-table .accept {
     width: 40.36%;
     padding-right: 50px
 }
@@ -6489,9 +6493,9 @@ del {
 }
 
 .progress-table .table-head .serial,
-.progress-table .table-head .country,
-.progress-table .table-head .visit,
-.progress-table .table-head .percentage {
+.progress-table .table-head .name,
+.progress-table .table-head .roll_no,
+.progress-table .table-head .accept {
     color: #415094;
     line-height: 40px;
     text-transform: uppercase;
@@ -6505,58 +6509,15 @@ del {
 }
 
 .progress-table .table-row .serial,
-.progress-table .table-row .country,
-.progress-table .table-row .visit,
-.progress-table .table-row .percentage {
+.progress-table .table-row .name,
+.progress-table .table-row .roll_no,
+.progress-table .table-row .accept {
     display: flex;
     align-items: center
 }
 
-.progress-table .table-row .country img {
+.progress-table .table-row .name img {
     margin-right: 15px
-}
-
-.progress-table .table-row .percentage .progress {
-    width: 80%;
-    border-radius: 0px;
-    background: transparent
-}
-
-.progress-table .table-row .percentage .progress .progress-bar {
-    height: 5px;
-    line-height: 5px
-}
-
-.progress-table .table-row .percentage .progress .progress-bar.color-1 {
-    background-color: #6382e6
-}
-
-.progress-table .table-row .percentage .progress .progress-bar.color-2 {
-    background-color: #e66686
-}
-
-.progress-table .table-row .percentage .progress .progress-bar.color-3 {
-    background-color: #f09359
-}
-
-.progress-table .table-row .percentage .progress .progress-bar.color-4 {
-    background-color: #73fbaf
-}
-
-.progress-table .table-row .percentage .progress .progress-bar.color-5 {
-    background-color: #73fbaf
-}
-
-.progress-table .table-row .percentage .progress .progress-bar.color-6 {
-    background-color: #6382e6
-}
-
-.progress-table .table-row .percentage .progress .progress-bar.color-7 {
-    background-color: #a367e7
-}
-
-.progress-table .table-row .percentage .progress .progress-bar.color-8 {
-    background-color: #e66686
 }
 
 .single-gallery-image {
