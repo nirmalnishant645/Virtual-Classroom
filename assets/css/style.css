@@ -6483,6 +6483,10 @@ del {
     width: 19.74%
 }
 
+.progress-table .email_id {
+    width: 19.74%
+}
+
 .progress-table .accept {
     width: 40.36%;
     padding-right: 50px
@@ -6495,6 +6499,7 @@ del {
 .progress-table .table-head .serial,
 .progress-table .table-head .name,
 .progress-table .table-head .roll_no,
+.progress-table .table-head .email_id,
 .progress-table .table-head .accept {
     color: #415094;
     line-height: 40px;
@@ -6511,6 +6516,7 @@ del {
 .progress-table .table-row .serial,
 .progress-table .table-row .name,
 .progress-table .table-row .roll_no,
+.progress-table .table-row .email_id,
 .progress-table .table-row .accept {
     display: flex;
     align-items: center
