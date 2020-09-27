@@ -51,7 +51,7 @@
             <div class="login-form">
                 <!-- logo-login -->
                 <div class="logo-login">
-                    <a href="index.html"><img src="assets/img/logo/loder.png" alt=""></a>
+                    <a href="index.jsp"><img src="assets/img/logo/loder.png" alt=""></a>
                 </div>
                 <h2>Register Here</h2>
                 <p>*All fields are mandatory</p>
@@ -75,7 +75,7 @@
                     <input type="submit" name="submit" value="Send Request">
                 </div>
                 <!-- Forget Password -->
-                <a href="faculty_login.html" class="registration">login</a>
+                <a href="faculty_login.jsp" class="registration">login</a>
             </div>
         </form>
         <!-- /end login form -->

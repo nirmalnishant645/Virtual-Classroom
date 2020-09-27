@@ -51,7 +51,7 @@
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-2">
                                 <div class="logo">
-                                    <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                                    <a href="index.jsp"><img src="assets/img/logo/logo.png" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-xl-10 col-lg-10">
@@ -60,14 +60,19 @@
                                     <div class="main-menu d-none d-lg-block">
                                         <nav>
                                             <ul id="navigation">
-                                                <li class="active"><a href="faculty_dashboard.html">Home</a></li>
-                                                <li><a href="#">Classroom</a>
+                                                <li class="active"><a href="admin_dashboard.jsp">Home</a></li>
+                                                <li><a href="#">Student</a>
                                                     <ul class="submenu">
-                                                        <li><a href="">Video Lectures</a></li>
-                                                        <li><a href="">Study Materials</a></li>
+                                                        <li><a href="">Manage</a></li>
+                                                        <li><a href="admin_student_requests.jsp">Requests</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="#">Q/A Forum</a></li>
+                                                <li><a href="#">Faculty</a>
+                                                    <ul class="submenu">
+                                                        <li><a href="">Manage</a></li>
+                                                        <li><a href="admin_faculty_requests.jsp">Requests</a></li>
+                                                    </ul>
+                                                </li>
                                                 <!-- Button -->
                                                 <li class="button-header"><a href="" class="btn btn3">Log Out</a></li>
                                             </ul>
@@ -96,8 +101,8 @@
                         <div class="row">
                             <div class="col-xl-6 col-lg-7 col-md-12">
                                 <div class="hero__caption">
-                                    <h1 data-animation="fadeInLeft" data-delay="0.2s">Welcome<br>Name</h1>
-                                    <p data-animation="fadeInLeft" data-delay="0.4s">Add new video lectures and study materials, and resolve students' doubts at one place.</p>
+                                    <h1 data-animation="fadeInLeft" data-delay="0.2s">Student<br>Requests</h1>
+                                    <p data-animation="fadeInLeft" data-delay="0.4s">Accept or Decline Student Registration Requets.</p>
                                 </div>
                             </div>
                         </div>
@@ -106,6 +111,38 @@
             </div>
         </section>
     </main>
+    <div class="section-top-border">
+        <h3 class="mb-30 request">Requests:</h3>
+        <div class="progress-table-wrap">
+            <div class="progress-table">
+                <form class="form-default" action="">
+                    <div class="table-head">
+                        <div class="serial">#</div>
+                        <div class="name">Name</div>
+                        <div class="email_id">Email ID</div>
+                        <div class="accept">Accept / Decline</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="serial">01</div>
+                        <div class="name">FirstName LastName</div>
+                        <div class="email_id">###@gmail.com</div>
+                        <div class="accept"><input type="checkbox" name="###@gmail.com" value="01"></div>
+                    </div>
+                    <div class="table-row">
+                        <div class="serial">02</div>
+                        <div class="name">FirstName LastName</div>
+                        <div class="email_id">xxx@gmail.com</div>
+                        <div class="accept"><input type="checkbox" name="xxx@gmail.com" value="02"></div>
+                    </div>
+                    <div class="form-input pt-30 request">
+                        <input type="submit" name="submit" value="Submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
     <footer>
         <div class="footer-wrappper footer-bg">
             <!-- Footer Start-->
@@ -117,7 +154,7 @@
                                 <div class="single-footer-caption mb-30">
                                     <!-- logo -->
                                     <div class="footer-logo mb-25">
-                                        <a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
+                                        <a href="index.jsp"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
                                     </div>
                                     <div class="footer-tittle">
                                         <div class="footer-pera">

@@ -51,7 +51,7 @@
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-2">
                                 <div class="logo">
-                                    <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                                    <a href="index.jsp"><img src="assets/img/logo/logo.png" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-xl-10 col-lg-10">
@@ -60,17 +60,17 @@
                                     <div class="main-menu d-none d-lg-block">
                                         <nav>
                                             <ul id="navigation">
-                                                <li class="active"><a href="admin_dashboard.html">Home</a></li>
+                                                <li class="active"><a href="admin_dashboard.jsp">Home</a></li>
                                                 <li><a href="#">Student</a>
                                                     <ul class="submenu">
                                                         <li><a href="">Manage</a></li>
-                                                        <li><a href="admin_student_requests.html">Requests</a></li>
+                                                        <li><a href="admin_student_requests.jsp">Requests</a></li>
                                                     </ul>
                                                 </li>
                                                 <li><a href="#">Faculty</a>
                                                     <ul class="submenu">
                                                         <li><a href="">Manage</a></li>
-                                                        <li><a href="admin_faculty_requests.html">Requests</a></li>
+                                                        <li><a href="admin_faculty_requests.jsp">Requests</a></li>
                                                     </ul>
                                                 </li>
                                                 <!-- Button -->
@@ -154,7 +154,7 @@
                                 <div class="single-footer-caption mb-30">
                                     <!-- logo -->
                                     <div class="footer-logo mb-25">
-                                        <a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
+                                        <a href="index.jsp"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
                                     </div>
                                     <div class="footer-tittle">
                                         <div class="footer-pera">

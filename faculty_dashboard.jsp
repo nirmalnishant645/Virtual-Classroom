@@ -51,7 +51,7 @@
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-2">
                                 <div class="logo">
-                                    <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                                    <a href="index.jsp"><img src="assets/img/logo/logo.png" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-xl-10 col-lg-10">
@@ -60,19 +60,14 @@
                                     <div class="main-menu d-none d-lg-block">
                                         <nav>
                                             <ul id="navigation">
-                                                <li class="active"><a href="admin_dashboard.html">Home</a></li>
-                                                <li><a href="#">Student</a>
+                                                <li class="active"><a href="faculty_dashboard.jsp">Home</a></li>
+                                                <li><a href="#">Classroom</a>
                                                     <ul class="submenu">
-                                                        <li><a href="">Manage</a></li>
-                                                        <li><a href="admin_student_requests.html">Requests</a></li>
+                                                        <li><a href="">Video Lectures</a></li>
+                                                        <li><a href="">Study Materials</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="#">Faculty</a>
-                                                    <ul class="submenu">
-                                                        <li><a href="">Manage</a></li>
-                                                        <li><a href="admin_faculty_requests.html">Requests</a></li>
-                                                    </ul>
-                                                </li>
+                                                <li><a href="#">Q/A Forum</a></li>
                                                 <!-- Button -->
                                                 <li class="button-header"><a href="" class="btn btn3">Log Out</a></li>
                                             </ul>
@@ -101,8 +96,8 @@
                         <div class="row">
                             <div class="col-xl-6 col-lg-7 col-md-12">
                                 <div class="hero__caption">
-                                    <h1 data-animation="fadeInLeft" data-delay="0.2s">Welcome<br>Admin</h1>
-                                    <p data-animation="fadeInLeft" data-delay="0.4s">Manage users and data at one place.</p>
+                                    <h1 data-animation="fadeInLeft" data-delay="0.2s">Welcome<br>Name</h1>
+                                    <p data-animation="fadeInLeft" data-delay="0.4s">Add new video lectures and study materials, and resolve students' doubts at one place.</p>
                                 </div>
                             </div>
                         </div>
@@ -122,7 +117,7 @@
                                 <div class="single-footer-caption mb-30">
                                     <!-- logo -->
                                     <div class="footer-logo mb-25">
-                                        <a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
+                                        <a href="index.jsp"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
                                     </div>
                                     <div class="footer-tittle">
                                         <div class="footer-pera">

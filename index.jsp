@@ -51,7 +51,7 @@
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-2">
                                 <div class="logo">
-                                    <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                                    <a href="index.jsp"><img src="assets/img/logo/logo.png" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-xl-10 col-lg-10">
@@ -60,16 +60,19 @@
                                     <div class="main-menu d-none d-lg-block">
                                         <nav>
                                             <ul id="navigation">
-                                                <li class="active"><a href="student_dashboard.html">Home</a></li>
-                                                <li><a href="#">Classroom</a>
+                                                <li><a href="#">Login</a>
                                                     <ul class="submenu">
-                                                        <li><a href="">Video Lectures</a></li>
-                                                        <li><a href="">Study Materials</a></li>
+                                                        <li><a href="student_login.jsp">Student</a></li>
+                                                        <li><a href="faculty_login.jsp">Teacher</a></li>
+                                                        <li><a href="admin_login.jsp">Admin</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="">Q/A Forum</a></li>
-                                                <!-- Button -->
-                                                <li class="button-header"><a href="" class="btn btn3">Log Out</a></li>
+                                                <li><a href="#">Register</a>
+                                                    <ul class="submenu">
+                                                        <li><a href="student_register.jsp">Student</a></li>
+                                                        <li><a href="faculty_register.jsp">Teacher</a></li>
+                                                    </ul>
+                                                </li>
                                             </ul>
                                         </nav>
                                     </div>
@@ -96,8 +99,8 @@
                         <div class="row">
                             <div class="col-xl-6 col-lg-7 col-md-12">
                                 <div class="hero__caption">
-                                    <h1 data-animation="fadeInLeft" data-delay="0.2s">Welcome<br>Name</h1>
-                                    <p data-animation="fadeInLeft" data-delay="0.4s">Attend video lectures, skim through study materials and ask doubts at one place.</p>
+                                    <h1 data-animation="fadeInLeft" data-delay="0.2s">Virtual<br>Classroom</h1>
+                                    <p data-animation="fadeInLeft" data-delay="0.4s">Teaching tool to assist each and every student to learn in an interactive manner.</p>
                                 </div>
                             </div>
                         </div>
@@ -117,7 +120,7 @@
                                 <div class="single-footer-caption mb-30">
                                     <!-- logo -->
                                     <div class="footer-logo mb-25">
-                                        <a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
+                                        <a href="index.jsp"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
                                     </div>
                                     <div class="footer-tittle">
                                         <div class="footer-pera">
