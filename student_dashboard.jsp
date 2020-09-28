@@ -1,4 +1,6 @@
-<!doctype html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" import="java.sql.*"%>
+  <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html class="no-js" lang="zxx">
 
 <head>
@@ -51,7 +53,7 @@
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-2">
                                 <div class="logo">
-                                    <a href="index.jsp"><img src="assets/img/logo/logo.png" alt=""></a>
+                                    <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-xl-10 col-lg-10">
@@ -69,7 +71,7 @@
                                                 </li>
                                                 <li><a href="">Q/A Forum</a></li>
                                                 <!-- Button -->
-                                                <li class="button-header"><a href="" class="btn btn3">Log Out</a></li>
+                                                <li class="button-header"><a href="student_logout.jsp" class="btn btn3">Log Out</a></li>
                                             </ul>
                                         </nav>
                                     </div>
@@ -96,7 +98,7 @@
                         <div class="row">
                             <div class="col-xl-6 col-lg-7 col-md-12">
                                 <div class="hero__caption">
-                                    <h1 data-animation="fadeInLeft" data-delay="0.2s">Welcome<br>Name</h1>
+                                    <h1 data-animation="fadeInLeft" data-delay="0.2s">Welcome<br><% out.println(session.getAttribute("student")); %></h1>
                                     <p data-animation="fadeInLeft" data-delay="0.4s">Attend video lectures, skim through study materials and ask doubts at one place.</p>
                                 </div>
                             </div>
@@ -117,7 +119,7 @@
                                 <div class="single-footer-caption mb-30">
                                     <!-- logo -->
                                     <div class="footer-logo mb-25">
-                                        <a href="index.jsp"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
+                                        <a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
                                     </div>
                                     <div class="footer-tittle">
                                         <div class="footer-pera">
