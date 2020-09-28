@@ -1,4 +1,6 @@
-<!doctype html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" import="java.sql.*"%>
+ <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html class="no-js" lang="zxx">
 
 <head>
@@ -25,6 +27,7 @@
     <link rel="stylesheet" href="assets/css/slick.css">
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <link rel="stylesheet" href="assets/css/style.css">
+
 </head>
 
 <body>
@@ -44,20 +47,43 @@
 
     <main class="login-body" data-vide-bg="assets/img/login-bg.mp4">
         <!-- Login Admin -->
-        <form class="form-default" action="login-bg.mp4" method="POST">
+        <form class="form-default" name="myform" action="student_login.jsp" method="POST">
 
+<%
+		// if student is already logged in to the system, redirect to the dashboard
+		if(session.getAttribute("student") != null)
+		{
+			response.sendRedirect("student_dashboard.jsp");
+		}
+%>
             <div class="login-form">
                 <!-- logo-login -->
                 <div class="logo-login">
-                    <a href="index.jsp"><img src="assets/img/logo/loder.png" alt=""></a>
+                    <a href="index.html"><img src="assets/img/logo/loder.png" alt=""></a>
                 </div>
                 <h2>Login Here</h2>
                 <div class="form-input">
-                    <input type="text" name="roll_no" placeholder="Roll No">
+                    <input type="text" name="roll_no" placeholder="Roll No" required>
                 </div>
                 <div class="form-input">
-                    <input type="password" name="password" placeholder="Password">
+                    <input type="password" name="password" placeholder="Password" required>
                 </div>
+				<p style = "color:red">
+<%
+		if(session.getAttribute("NotAccepted") != null)
+		{
+			out.println(session.getAttribute("NotAccepted"));
+		}
+		if(session.getAttribute("StudentErrorLogin") != null)
+		{
+			out.println(session.getAttribute("StudentErrorLogin"));
+		}
+		if(session.getAttribute("Rejected") != null)
+		{
+			out.println(session.getAttribute("Rejected"));
+		}
+%>
+				</p>
                 <div class="form-input pt-30">
                     <input type="submit" name="submit" value="login">
                 </div>
@@ -65,8 +91,74 @@
                 <!-- Forgot Password -->
                 <a href="#" class="forget">Forgot Password</a>
                 <!-- Forgot Password -->
-                <a href="register.jsp" class="registration">Registration</a>
+                <a href="student_register.jsp" class="registration"> You dont't have an account? <b> Register here </b> </a>
             </div>
+
+<%
+	// getting all required fields of login of student for validation
+	String no = request.getParameter("roll_no");
+	String password = request.getParameter("password");
+
+	try
+	{
+		// register the driver
+		Class.forName("com.mysql.cj.jdbc.Driver");
+
+		// establish the connection
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/project" , "root" , "Mypasswordis2425");
+
+		// create a SQL statement
+		Statement stmt = con.createStatement();
+		String sql = "select * from student where roll_no = " + no + " and password = SHA1 ('" + password + "')";
+
+		// execute the SQL statement
+		ResultSet rs = stmt.executeQuery (sql);
+
+		// if details found in database 
+		if(rs.next())
+		{
+			// if request is not yet accepted by Admin
+			if(rs.getInt(8) == 0)
+			{
+				session.setAttribute("NotAccepted","Your Request is not yet accepted by Administrator");
+			}
+			// if request is accepted by Admin
+			else if(rs.getInt(8) == 1)
+			{
+				session.setAttribute("student",rs.getString(2));
+				response.sendRedirect("student_dashboard.jsp");
+			}
+		}
+
+		// if details not found in database
+		else
+		{
+			// create a SQL statement
+			String sql1 = "select * from student where roll_no = " + no;
+
+			// execute a SQL statement
+			ResultSet rs1 = stmt.executeQuery (sql1);
+
+			// if details are incorrect, display error message
+			if(rs1.next())
+			{
+				session.setAttribute("StudentErrorLogin","Invalid Roll Number / Password");
+			}
+			// if request is rejected, go to home page
+			else
+			{
+				session.setAttribute("Rejected","Your request is rejected by Administrator");
+			}
+		}
+
+		// close the connection
+		con.close();
+	}
+	catch(Exception e)
+	{
+		out.println(e);
+	}
+%>
         </form>
         <!-- /end login form -->
     </main>
