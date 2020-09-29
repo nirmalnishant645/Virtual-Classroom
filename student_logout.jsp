@@ -2,7 +2,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <%
-	session.removeAttribute("admin");					// destroy session of admin
-	session.removeAttribute("AdminErrorLogin");		// destroy session of admin
+	session.removeAttribute("student");					// destroy session of student
+	session.removeAttribute("StudentErrorLogin");		// destroy session of student
+	session.removeAttribute("NotAccepted");				// destroy session of student
+	session.removeAttribute("ErrorMsg");
+	session.invalidate();
 	response.sendRedirect("index.html");				// redirect to home page of system
 %>

@@ -1,4 +1,6 @@
-<!doctype html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" import="java.sql.*, java.lang.*"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html class="no-js" lang="zxx">
 
 <head>
@@ -25,6 +27,28 @@
     <link rel="stylesheet" href="assets/css/slick.css">
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <link rel="stylesheet" href="assets/css/style.css">
+
+	<script>
+		var check = function()
+		{
+			if (document.getElementById("password").value == document.getElementById("confirm_password").value)
+			{
+				document.getElementById("message").style.color = "green";
+				document.getElementById("message").innerHTML = "Password matching";
+			}
+			else
+			{
+				document.getElementById("message").style.color = "red";
+				document.getElementById("message").innerHTML = "Password not matching";
+			}
+		}
+
+		function checkDegree()
+		{
+			var select = document.getElementById("degree");
+			var option = select.options[select.selectedIndex];
+		}
+	</script>
 </head>
 
 <body>
@@ -46,46 +70,148 @@
 
     <main class="login-body" data-vide-bg="assets/img/login-bg.mp4">
         <!-- Login Admin -->
-        <form class="form-default" action="student_register.jsp" method="POST">
+        <form class="form-default" name="myform" action="student_register.jsp" method="POST" onsubmit="return validate();">
 
             <div class="login-form">
                 <!-- logo-login -->
                 <div class="logo-login">
-                    <a href="index.jsp"><img src="assets/img/logo/loder.png" alt=""></a>
+                    <a href="index.html"><img src="assets/img/logo/loder.png" alt=""></a>
                 </div>
                 <h2>Register Here</h2>
                 <p>*All fields are mandatory</p>
 
                 <div class="form-input">
-                    <input type="text" name="roll_no" placeholder="Roll No">
+                    <input type="text" name="roll_no" placeholder="Roll No" pattern="[0]*[1-9]+" title="Enter valid roll number" required>
                 </div>
                 <div class="form-input">
-                    <input type="text" name="name" placeholder="Full name">
+                    <input type="text" name="name" placeholder="Full name" pattern="[A-Z a-z]{2,}\s{1}[A-Z a-z]{3,}" title="Enter First Name and Last Name" required>
                 </div>
                 <div class="form-input">
-                    <input type="email" name="email" placeholder="Email ID">
+                    <input name="email" placeholder="Email ID" pattern="[a-z0-9.!#$%&_]+@[a-z0-9]+\.[a-z]{2,4}$" title="Must be like : characters@characters.domain" required>
                 </div>
                 <div class="form-input">
-                    <input type="password" name="password" placeholder="Password">
+                    <input type="password" id="password" name="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+  title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                 </div>
                 <div class="form-input">
-                    <input type="password" name="password" placeholder="Confirm Password">
+                    <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" onkeyup="check();" required>
+					<span id="message"></span>
                 </div>
-                <div class="form-input">
-                    <input type="text" name="degree" placeholder="Degree">
+<%
+	try
+	{
+		// register the driver
+		Class.forName("com.mysql.cj.jdbc.Driver");
+
+		// establish the connection
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/project","root","Mypasswordis2425");
+
+		// create a SQL statement
+		Statement stmt = con.createStatement();
+
+		// execute the SQL statement
+		ResultSet rs = stmt.executeQuery("select degree from enroll_for group by degree");
+%>
+
+				<div class="form-input">
+					<select name="degree" id="degree" required>
+						<option value=""> Select degree </option>
+<%
+		// fetch the values of 'degree' available in ResultSet
+		while(rs.next())
+		{
+%>
+						<option value="<%= rs.getString(1) %>"> <%= rs.getString(1) %></option>
+<%
+		}
+%>
+					</select>
+					<br> <br>
                 </div>
-                <div class="form-input">
-                    <input type="text" name="course" placeholder="Course">
+<%
+		// execute the SQL statement
+		String deg = "M.Sc";
+		ResultSet r1 = stmt.executeQuery("select course from enroll_for where degree = '" + deg + "'"); 
+%>
+				<div class="form-input">
+					<select name="course" required>
+						<option value="Select"> Select course </option>
+<%
+		// fetch the values of 'courses' available in ResultSet
+		while(r1.next())
+		{
+%>
+						<option value="<%= r1.getString(1) %>"> <%= r1.getString(1) %></option>
+<%
+		}
+%>
+					</select>
+					<br> <br>
                 </div>
-                <div class="form-input">
-                    <input type="text" name="year" placeholder="Year">
-                </div>
+				<div class="form-input">
+					<select name="year" required>
+						<option value=""> Select year </option>
+						<option value="1"> 1 </option>
+						<option value="2"> 2 </option>
+<%
+		if(deg.charAt(0) == 'M')
+		{
+%>
+						<option value="3"> 3 </option>
+<%
+		}
+%>
+					</select>
+					<br> <br>
+				</div>
+<%
+	}	
+	catch(Exception e)
+	{
+		out.println(e);
+	}
+%>
                 <div class="form-input pt-30">
                     <input type="submit" name="submit" value="Send Request">
                 </div>
                 <!-- Forget Password -->
-                <a href="student_login.jsp" class="registration">login</a>
+                <a href="student_login.jsp" class="registration">Already have an account?<b> Login here </b> </a>
             </div>
+
+<%
+	// getting all required fields of registration of student for validation
+	String no = request.getParameter("roll_no");
+	String name = request.getParameter("name");
+	String email = request.getParameter("email");
+	String password = request.getParameter("password");
+	String degree = request.getParameter("degree");
+	String course = request.getParameter("course");
+	String year = request.getParameter("year");
+
+	try
+	{
+		// register the driver
+		Class.forName("com.mysql.cj.jdbc.Driver");
+
+		// establish the connection
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/project","root","Mypasswordis2425");
+
+		// create a SQL statement
+		Statement stmt = con.createStatement();
+		String sql = "insert into student (roll_no, name, email_id, password, degree, course, year) values('" + no + "','" + name + "','" + email + "',SHA1('" + password + "'),'" + degree + "','" + course + "','" + year + "')"; 
+
+		// execute the SQL statement
+		stmt.executeUpdate(sql);
+
+		// close the connection
+		stmt.close();
+		con.close();
+	}
+	catch(Exception e)
+	{
+		out.println(e);
+	}
+%>
         </form>
         <!-- /end login form -->
     </main>
