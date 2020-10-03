@@ -3,11 +3,11 @@
 // Â© Denis Ineshin, 2017
 // https://github.com/IonDen
 //
-// Project page:    http://ionden.com/a/plugins/ion.rangeSlider/en.html
+// Project page:    http://ionden.com/a/plugins/ion.rangeSlider/en.jsp
 // GitHub page:     https://github.com/IonDen/ion.rangeSlider
 //
 // Released under MIT licence:
-// http://ionden.com/a/plugins/licence-en.html
+// http://ionden.com/a/plugins/licence-en.jsp
 // =====================================================================================================================
 
 ;(function(factory) {
@@ -503,7 +503,7 @@
             this.$cache.cont = this.$cache.input.prev();
             this.result.slider = this.$cache.cont;
 
-            this.$cache.cont.html(base_html);
+            this.$cache.cont.jsp(base_html);
             this.$cache.rs = this.$cache.cont.find(".irs");
             this.$cache.min = this.$cache.cont.find(".irs-min");
             this.$cache.max = this.$cache.cont.find(".irs-max");
@@ -896,11 +896,11 @@
             }
 
             if (this.options.values.length) {
-                this.$cache.min.html(this.decorate(this.options.p_values[this.options.min]));
-                this.$cache.max.html(this.decorate(this.options.p_values[this.options.max]));
+                this.$cache.min.jsp(this.decorate(this.options.p_values[this.options.min]));
+                this.$cache.max.jsp(this.decorate(this.options.p_values[this.options.max]));
             } else {
-                this.$cache.min.html(this.decorate(this._prettify(this.options.min), this.options.min));
-                this.$cache.max.html(this.decorate(this._prettify(this.options.max), this.options.max));
+                this.$cache.min.jsp(this.decorate(this._prettify(this.options.min), this.options.min));
+                this.$cache.max.jsp(this.decorate(this._prettify(this.options.max), this.options.max));
             }
 
             this.labels.w_min = this.$cache.min.outerWidth(false);
@@ -1402,10 +1402,10 @@
 
                 if (values_num) {
                     text_single = this.decorate(p_values[this.result.from]);
-                    this.$cache.single.html(text_single);
+                    this.$cache.single.jsp(text_single);
                 } else {
                     text_single = this.decorate(this._prettify(this.result.from), this.result.from);
-                    this.$cache.single.html(text_single);
+                    this.$cache.single.jsp(text_single);
                 }
 
                 this.calcLabels();
@@ -1436,9 +1436,9 @@
                     text_from = this.decorate(p_values[this.result.from]);
                     text_to = this.decorate(p_values[this.result.to]);
 
-                    this.$cache.single.html(text_single);
-                    this.$cache.from.html(text_from);
-                    this.$cache.to.html(text_to);
+                    this.$cache.single.jsp(text_single);
+                    this.$cache.from.jsp(text_from);
+                    this.$cache.to.jsp(text_to);
 
                 } else {
 
@@ -1452,9 +1452,9 @@
                     text_from = this.decorate(this._prettify(this.result.from), this.result.from);
                     text_to = this.decorate(this._prettify(this.result.to), this.result.to);
 
-                    this.$cache.single.html(text_single);
-                    this.$cache.from.html(text_from);
-                    this.$cache.to.html(text_to);
+                    this.$cache.single.jsp(text_single);
+                    this.$cache.from.jsp(text_from);
+                    this.$cache.to.jsp(text_to);
 
                 }
 
@@ -2171,7 +2171,7 @@
 
 
             this.$cache.cont.addClass("irs-with-grid");
-            this.$cache.grid.html(html);
+            this.$cache.grid.jsp(html);
             this.cacheGridLabels();
         },
 
