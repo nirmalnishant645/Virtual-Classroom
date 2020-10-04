@@ -34,7 +34,7 @@ jQuery(document).ready(function($){
 				letters[i] = (selected) ? '<i class="in">' + letters[i] + '</i>': '<i>' + letters[i] + '</i>';
 			}
 		    var newLetters = letters.join('');
-		    word.html(newLetters).css('opacity', 1);
+		    word.jsp(newLetters).css('opacity', 1);
 		});
 	}
 
