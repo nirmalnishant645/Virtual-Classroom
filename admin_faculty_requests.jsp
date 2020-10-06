@@ -74,7 +74,7 @@
                                                     </ul>
                                                 </li>
                                                 <!-- Button -->
-                                                <li class="button-header"><a href="" class="btn btn3">Log Out</a></li>
+                                                <li class="button-header"><a href="admin_logout.jsp" class="btn btn3">Log Out</a></li>
                                             </ul>
                                         </nav>
                                     </div>
@@ -101,8 +101,8 @@
                         <div class="row">
                             <div class="col-xl-6 col-lg-7 col-md-12">
                                 <div class="hero__caption">
-                                    <h1 data-animation="fadeInLeft" data-delay="0.2s">Student<br>Requests</h1>
-                                    <p data-animation="fadeInLeft" data-delay="0.4s">Accept or Decline Student Registration Requets.</p>
+                                    <h1 data-animation="fadeInLeft" data-delay="0.2s">Faculty<br>Requests</h1>
+                                    <p data-animation="fadeInLeft" data-delay="0.4s">Accept or Decline Faculty Registration Requets.</p>
                                 </div>
                             </div>
                         </div>
@@ -135,7 +135,10 @@
                         <div class="accept"><input type="checkbox" name="xxx@gmail.com" value="02"></div>
                     </div>
                     <div class="form-input pt-30 request">
-                        <input type="submit" name="submit" value="Submit">
+                        <input class="genric-btn primary-border" type="submit" name="accept" value="Accept">
+                    </div>
+                    <div class="form-input pt-30 request">
+                        <input class="genric-btn primary-border" type="submit" name="reject" value="Reject">
                     </div>
                 </form>
             </div>
