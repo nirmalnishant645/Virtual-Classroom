@@ -1,4 +1,6 @@
-<!doctype html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" import="java.sql.*"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html class="no-js" lang="zxx">
 
 <head>
@@ -25,7 +27,32 @@
     <link rel="stylesheet" href="assets/css/slick.css">
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <link rel="stylesheet" href="assets/css/style.css">
+<!--
+	<script language="javascript">
+		function validation()
+		{
+			var count=0;
+			for(vari=0;i<admin.chbox.length;i++)
+			{
+				if(admin.chbox[i].checked)
+				{
+					count++;
+				}
+			}
 
+			if(count==0)
+			{
+				alert("check the messages to delete & u had limited msg");
+				//document.msgchbox.checkbox.focus();
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+		}
+	</script>
+-->
 </head>
 
 <body>
@@ -51,7 +78,7 @@
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-2">
                                 <div class="logo">
-                                    <a href="index.jsp"><img src="assets/img/logo/logo.png" alt=""></a>
+                                    <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-xl-10 col-lg-10">
@@ -60,21 +87,21 @@
                                     <div class="main-menu d-none d-lg-block">
                                         <nav>
                                             <ul id="navigation">
-                                                <li class="active"><a href="admin_dashboard.jsp">Home</a></li>
+                                                <li class="active"><a href="admin_dashboard.jsp"> Home </a></li>
                                                 <li><a href="#">Student</a>
                                                     <ul class="submenu">
                                                         <li><a href="">Manage</a></li>
-                                                        <li><a href="admin_student_requests.jsp">Requests</a></li>
+                                                        <li><a href="admin_student_requests.jsp"> Requests </a></li>
                                                     </ul>
                                                 </li>
                                                 <li><a href="#">Faculty</a>
                                                     <ul class="submenu">
                                                         <li><a href="">Manage</a></li>
-                                                        <li><a href="admin_faculty_requests.jsp">Requests</a></li>
+                                                        <li><a href="admin_faculty_requests.html"> Requests </a></li>
                                                     </ul>
                                                 </li>
                                                 <!-- Button -->
-                                                <li class="button-header"><a href="" class="btn btn3">Log Out</a></li>
+                                                <li class="button-header"><a href="admin_logout.jsp" class="btn btn3"> Log Out </a></li>
                                             </ul>
                                         </nav>
                                     </div>
@@ -115,27 +142,58 @@
         <h3 class="mb-30 request">Requests:</h3>
         <div class="progress-table-wrap">
             <div class="progress-table">
-                <form class="form-default" action="">
+                <form class="form-default" action="admin_student_requests_action.jsp" method="POST">
                     <div class="table-head">
-                        <div class="serial">#</div>
+                        <div class="serial">Serial Number</div>
+                        <div class="roll_no">Roll Number</div>
                         <div class="name">Name</div>
-                        <div class="roll_no">Roll No</div>
+						<div class="name">Class</div>
                         <div class="accept">Accept / Decline</div>
                     </div>
+
+<%
+		try
+		{
+			// register the driver
+			Class.forName("com.mysql.cj.jdbc.Driver");
+
+			// establish the connection with the database
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/project" , "root" , "Mypasswordis2425");
+
+			// create a SQL statement
+			Statement stmt = con.createStatement();
+			String sql = "select roll_no, name, degree, course, year from student where is_approved = 0";
+
+			// execute the statement
+			ResultSet rs = stmt.executeQuery (sql);
+
+			while(rs.next())
+			{
+%>
                     <div class="table-row">
-                        <div class="serial">01</div>
-                        <div class="name">FirstName LastName</div>
-                        <div class="roll_no">###</div>
-                        <div class="accept"><input type="checkbox" name="###" value="01"></div>
+                        <div class="serial"> 1 </div>
+                        <div class="roll_no">  <%= rs.getInt(1) %> </div>
+						<div class="name">  <%= rs.getString(2) %> </div>
+                        <div class="name"> <%= rs.getString(3) %> <%= rs.getString(4) %> <%= rs.getString(5) %> </div>
+                        <div class="accept"><input type="checkbox" name="ad" value="<%=rs.getInt(1)%>"></div>
                     </div>
-                    <div class="table-row">
-                        <div class="serial">02</div>
-                        <div class="name">FirstName LastName</div>
-                        <div class="roll_no">xxx</div>
-                        <div class="accept"><input type="checkbox" name="xxx" value="02"></div>
-                    </div>
+<%
+			}
+
+			// close the connection
+			stmt.close();
+			con.close();
+		}
+		catch (Exception e)
+		{
+			out.println(e);
+		}
+%>
                     <div class="form-input pt-30 request">
-                        <input type="submit" name="submit" value="Submit">
+                        <input type="submit" name="accept" value="Accept Request">
+                    </div>
+					<div class="form-input pt-30 request">
+                        <input type="submit" name="reject" value="Delete Requests">
                     </div>
                 </form>
             </div>
@@ -154,7 +212,7 @@
                                 <div class="single-footer-caption mb-30">
                                     <!-- logo -->
                                     <div class="footer-logo mb-25">
-                                        <a href="index.jsp"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
+                                        <a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
                                     </div>
                                     <div class="footer-tittle">
                                         <div class="footer-pera">
