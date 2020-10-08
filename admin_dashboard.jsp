@@ -74,13 +74,13 @@
                                                 <li> <a href = "#">Student</a>
                                                     <ul class = "submenu">
                                                         <li> <a href = "">Manage</a></li>
-                                                        <li> <a href = "admin_student_requests.html">Requests</a></li>
+                                                        <li> <a href = "admin_student_requests.jsp">Requests</a></li>
                                                     </ul>
                                                 </li>
                                                 <li> <a href = "#">Faculty</a>
                                                     <ul class = "submenu">
                                                         <li> <a href = ""> Manage </a> </li>
-                                                        <li> <a href = "admin_faculty_requests.html"> Requests </a></li>
+                                                        <li> <a href = "admin_faculty_requests.jsp"> Requests </a></li>
                                                     </ul>
                                                 </li>
                                                 <!-- Button -->
