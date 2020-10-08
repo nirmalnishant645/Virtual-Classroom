@@ -4,5 +4,5 @@
 <%
 	session.removeAttribute("admin");					// destroy session of admin
 	session.removeAttribute("AdminErrorLogin");		// destroy session of admin
-	response.sendRedirect("index.html");				// redirect to home page of system
+	response.sendRedirect("index.jsp");				// redirect to home page of system
 %>
