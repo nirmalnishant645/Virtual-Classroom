@@ -44,11 +44,11 @@
 
     <!-- Register -->
 
-    <main class="login-body" data-vide-bg="assets/img/login-bg.mp4">
+    <main class="login-body">
         <!-- Login Admin -->
         <form class="form-default" action="" method="POST">
 
-            <div class="login-form">
+            <div class="login-form reg">
                 <!-- logo-login -->
                 <div class="logo-login">
                     <a href="index.jsp"><img src="assets/img/logo/loder.png" alt=""></a>
@@ -60,10 +60,13 @@
                     <input type="text" name="name" placeholder="Full name">
                 </div>
                 <div class="form-input">
-                    <input type="text" name="username" placeholder="Username">
+                    <input type="email" name="email" placeholder="Email ID">
                 </div>
                 <div class="form-input">
-                    <input type="email" name="email" placeholder="Email ID">
+                    <input type="text" name="subject" placeholder="Subject">
+                </div>
+                <div class="form-input">
+                    <input type="text" name="username" placeholder="Username">
                 </div>
                 <div class="form-input">
                     <input type="password" name="password" placeholder="Password">
