@@ -42,9 +42,9 @@
     <!-- Preloader Start-->
 
 
-    <main class="login-body" data-vide-bg="assets/img/login-bg.mp4">
+    <main class="login-body">
         <!-- Login Admin -->
-        <form class="form-default" action="login-bg.mp4" method="POST">
+        <form class="form-default" action="" method="POST">
 
             <div class="login-form">
                 <!-- logo-login -->
