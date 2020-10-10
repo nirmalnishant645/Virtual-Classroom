@@ -7,5 +7,5 @@
 	session.removeAttribute("NotAccepted");				// destroy session of student
 	session.removeAttribute("ErrorMsg");
 	session.invalidate();
-	response.sendRedirect("index.html");				// redirect to home page of system
+	response.sendRedirect("index.jsp");				// redirect to home page of system
 %>
