@@ -157,7 +157,7 @@
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
 			// establish the connection with the database
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/project" , "root" , "nirmaL123#");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/project" , "root" , "Mypasswordis2425");
 
 			// create a SQL statement
 			Statement stmt = con.createStatement();
