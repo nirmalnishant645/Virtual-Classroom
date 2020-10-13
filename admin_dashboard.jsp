@@ -32,7 +32,7 @@
 
     <body>
 
-<%
+        <%
 		if(session.getAttribute("admin") == null)									// check if admin is already logged in to the system
 		{
 			response.sendRedirect("admin_login.jsp");								// if not logged in, take admin to login page
