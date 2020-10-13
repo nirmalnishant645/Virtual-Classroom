@@ -121,11 +121,11 @@
                         <div class="table-head">
                             <div class="name">Name</div>
                             <div class="name">Class</div>
-							<div class="name">Subject</div>
+                            <div class="name">Subject</div>
                             <div class="accept">Accept / Decline</div>
                         </div>
 
-<%
+                        <%
 		try
 		{
 			// register the driver
@@ -145,34 +145,34 @@
 			if (rs == null)
 			{
 %>
-				<div class="table-row">
-					<div class="name">
-<%
+                            <div class="table-row">
+                                <div class="name">
+                                    <%
 						out.println("No Pending request");
 %>
-					</div>
-				</div>
-<%
+                                </div>
+                            </div>
+                            <%
 			}
 
 			while(rs.next())
 			{
 %>
-                            <div class="table-row">
-                                <div class="name">
-                                    <%= rs.getString(1) %>
+                                <div class="table-row">
+                                    <div class="name">
+                                        <%= rs.getString(1) %>
+                                    </div>
+                                    <div class="name">
+                                        <%= rs.getString(2) %>
+                                            <%= rs.getString(3) %>
+                                                <%= rs.getString(4) %>
+                                    </div>
+                                    <div class="name">
+                                        <%= rs.getString(5) %>
+                                    </div>
+                                    <div class="accept"><input type="checkbox" name="ad" value="<%= rs.getString(5)%>"></div>
                                 </div>
-                                <div class="name">
-									<%= rs.getString(2) %>
-									<%= rs.getString(3) %>
-									<%= rs.getString(4) %>
-                                </div>
-								<div class="name">
-                                    <%= rs.getString(5) %>
-                                </div>
-                                <div class="accept"><input type="checkbox" name="ad" value="<%= rs.getString(5)%>"></div>
-                            </div>
-<%
+                                <%
 			}
 
 			// close the connection
@@ -184,12 +184,12 @@
 			out.println(e);
 		}
 %>
-                                <div class="form-input pt-30 request">
-                                    <input class="genric-btn primary-border" type="submit" name="accept" value="Accept Request">
-                                </div>
-                                <div class="form-input pt-30 request">
-                                    <input class="genric-btn primary-border" type="submit" name="reject" value="Delete Requests">
-                                </div>
+                                    <div class="form-input pt-30 request">
+                                        <input class="genric-btn primary-border" type="submit" name="accept" value="Accept Request">
+                                    </div>
+                                    <div class="form-input pt-30 request">
+                                        <input class="genric-btn primary-border" type="submit" name="reject" value="Delete Requests">
+                                    </div>
                     </form>
                 </div>
             </div>
