@@ -49,7 +49,7 @@
             <!-- Login Faculty -->
             <form class="form-default" name="myform" action="faculty_login.jsp" method="POST">
 
-<%
+                <%
 		// if faculty is already logged in to the system, redirect to the dashboard
 		if(session.getAttribute("faculty") != null)
 		{
