@@ -73,12 +73,12 @@
                         <a href="index.jsp"><img src="assets/img/logo/loder.png" alt=""></a>
                     </div>
                     <h2>Register Here</h2>
-                <p>*All fields are mandatory</p>
+                    <p>*All fields are mandatory</p>
 
-					<div class="form-input">
+                    <div class="form-input">
                         <input type="text" name="name" placeholder="Full name" pattern="[A-Z a-z]{2,}\s{1}[A-Z a-z]{3,}" title="Enter First Name and Last Name" required>
                     </div>
-					<div class="form-input">
+                    <div class="form-input">
                         <input type="text" name="username" placeholder="Username" title="Enter First Username" required>
                     </div>
                     <div class="form-input">
@@ -91,7 +91,7 @@
                         <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" onkeyup="check();" required>
                         <span id="message"></span>
                     </div>
-<%
+                    <%
 	try
 	{
 		// register the driver
@@ -107,8 +107,8 @@
 		ResultSet rs = stmt.executeQuery("select degree from enroll_for group by degree");
 %>
 
-					<div class="form-input">
-						<select name="degree" id="degree" required>
+                        <div class="form-input">
+                            <select name="degree" id="degree" required>
 							<option value=""> Select degree </option>
 <%
 		// fetch the values of 'degree' available in ResultSet
@@ -120,14 +120,14 @@
 		}
 %>
 						</select>
-					</div>
-<%
+                        </div>
+                        <%
 		// execute the SQL statement
 		String deg = "M.Sc";
 		ResultSet r1 = stmt.executeQuery("select course from enroll_for where degree = '" + deg + "'"); 
 %>
-					<div class="form-input">
-						<select name="course" required>
+                            <div class="form-input">
+                                <select name="course" required>
 							<option value="Select"> Select course </option>
 <%
 		// fetch the values of 'courses' available in ResultSet
@@ -139,9 +139,9 @@
 		}
 %>
 						</select>
-					</div>
-					<div class="form-input">
-						<select name="year" required>
+                            </div>
+                            <div class="form-input">
+                                <select name="year" required>
 							<option value=""> Select year </option>
 							<option value="1"> 1 </option>
 							<option value="2"> 2 </option>
@@ -154,25 +154,25 @@
 		}
 %>
 						</select>
-					</div>
-					<div class="form-input">
-                        <input type="text" name="subject" placeholder="Subject" required>
-					</div>
-<%
+                            </div>
+                            <div class="form-input">
+                                <input type="text" name="subject" placeholder="Subject" required>
+                            </div>
+                            <%
 	}	
 	catch(Exception e)
 	{
 		out.println(e);
 	}
 %>
-					<div class="form-input pt-30">
-						<input type="submit" name="submit" value="Send Request">
-					</div>
-					<!-- Forget Password -->
-					<a href="faculty_login.jsp" class="registration">Already have an account?<b> Login here </b> </a>
-				</div>
+                                <div class="form-input pt-30">
+                                    <input type="submit" name="submit" value="Send Request">
+                                </div>
+                                <!-- Forget Password -->
+                                <a href="faculty_login.jsp" class="registration">Already have an account?<b> Login here </b> </a>
+                </div>
 
-<%
+                <%
 	// getting all required fields of registration of student for validation
 	String name = request.getParameter("name");
 	String username = request.getParameter("username");
