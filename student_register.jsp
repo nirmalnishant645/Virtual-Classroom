@@ -32,22 +32,59 @@
             var check = function() {
                 if (document.getElementById("password").value == document.getElementById("confirm_password").value) {
                     document.getElementById("message").style.color = "green";
-                    document.getElementById("message").innerHTML = "Password matching";
+                    document.getElementById("message").innerHTML = "Password matched!";
                 } else {
                     document.getElementById("message").style.color = "red";
-                    document.getElementById("message").innerHTML = "Password not matching";
+                    document.getElementById("message").innerHTML = "Password does not match!";
                 }
             }
+
             function checkDegree() {
-                var select = document.getElementById("degree");
-                var option = select.options[select.selectedIndex];
+                var select = document.getElementById("degree").value;
+                window.location.replace("student_register.jsp?deg_JS=" + select);
+            }
+
+            window.onload = function() {
+                if (sessionStorage.getItem('roll_no') == 'roll_no') {
+                    return;
+                }
+                var roll_no = sessionStorage.getItem("roll_no");
+                if (roll_no !== null) $('#roll_no').val(roll_no);
+                var name = sessionStorage.getItem("name");
+                if (name !== null) $('#name').val(name);
+                var email = sessionStorage.getItem("email");
+                if (email !== null) $('#email').val(email);
+                var password = sessionStorage.getItem("password");
+                if (password !== null) $('#password').val(password);
+                var confirm_password = sessionStorage.getItem("confirm_password");
+                if (confirm_password !== null) $('#confirm_password').val(confirm_password);
+                var degree = sessionStorage.getItem("degree");
+                if (degree !== null) $('#degree').val(degree);
+            }
+
+            window.onbeforeunload = function() {
+                sessionStorage.setItem("roll_no", $('#roll_no').val());
+                sessionStorage.setItem("name", $('#name').val());
+                sessionStorage.setItem("email", $('#email').val());
+                sessionStorage.setItem("password", $('#password').val());
+                sessionStorage.setItem("confirm_password", $('#confirm_password').val());
+                sessionStorage.setItem("degree", $('#degree').val());
             }
         </script>
     </head>
 
     <body>
         <!-- ? Preloader Start -->
-
+        <div id="preloader-active">
+            <div class="preloader d-flex align-items-center justify-content-center">
+                <div class="preloader-inner position-relative">
+                    <div class="preloader-circle"></div>
+                    <div class="preloader-img pere-text">
+                        <img src="assets/img/logo/loder.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Preloader Start-->
 
 
@@ -66,13 +103,13 @@
                     <p>*All fields are mandatory</p>
 
                     <div class="form-input">
-                        <input type="text" name="roll_no" placeholder="Roll No" pattern="[0]*[0-9]+" title="Enter valid roll number" required>
+                        <input type="text" name="roll_no" id="roll_no" placeholder="Roll No" pattern="[0]*[1-9]+" title="Enter valid roll number" required>
                     </div>
                     <div class="form-input">
-                        <input type="text" name="name" placeholder="Full name" pattern="[A-Z a-z]{2,}\s{1}[A-Z a-z]{3,}" title="Enter First Name and Last Name" required>
+                        <input type="text" name="name" id="name" placeholder="Full name" pattern="[A-Z a-z]{2,}\s{1}[A-Z a-z]{3,}" title="Enter First Name and Last Name" required>
                     </div>
                     <div class="form-input">
-                        <input name="email" placeholder="Email ID" pattern="[a-z0-9.!#$%&_]+@[a-z0-9]+\.[a-z]{2,4}$" title="Must be like : characters@characters.domain" required>
+                        <input name="email" id="email" placeholder="Email ID" pattern="[a-z0-9.!#$%&_]+@[a-z0-9]+\.[a-z]{2,4}$" title="Must be like : characters@characters.domain" required>
                     </div>
                     <div class="form-input">
                         <input type="password" id="password" name="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" required>
@@ -82,7 +119,7 @@
                         <span id="message"></span>
                     </div>
 
-<%
+                    <%
 	try
 	{
 		// register the driver
@@ -97,10 +134,10 @@
 		// execute the SQL statement
 		ResultSet rs = stmt.executeQuery("select degree from enroll_for group by degree");
 %>
-
-					<div class="form-input">
-						<select name="degree" id="degree" required>
-							<option value=""> Select degree </option>
+                        <div class="dropdown-list">
+                            <div class="form-input llist">
+                                <select name="degree" id="degree" required onchange="checkDegree();">
+        <option value=""> Select degree </option>
 <%
 		// fetch the values of 'degree' available in ResultSet
 		while(rs.next())
@@ -111,57 +148,59 @@
 		}
 %>
 						</select>
-					</div>
-<%
-		// execute the SQL statement
-		String deg = "M.Sc";
+                            </div>
+                            <%
+        // execute the SQL statement
+		String deg = request.getParameter("deg_JS");
 		ResultSet r1 = stmt.executeQuery("select course from enroll_for where degree = '" + deg + "'"); 
 %>
-					<div class="form-input">
-						<select name="course" required>
-							<option value="Select"> Select course </option>
+                                <div class="form-input mlist">
+                                    <select name="course" required>
+						<option value="Select"> Select course </option>
 <%
 		// fetch the values of 'courses' available in ResultSet
 		while(r1.next())
 		{
 %>
-							<option value="<%= r1.getString(1) %>"> <%= r1.getString(1) %></option>
+						<option value="<%= r1.getString(1) %>"> <%= r1.getString(1) %></option>
 <%
 		}
 %>
-						</select>
-						<br> <br>
-					</div>
-					<div class="form-input">
-						<select name="year" required>
-							<option value=""> Select year </option>
-							<option value="1"> 1 </option>
-							<option value="2"> 2 </option>
+					</select>
+                                </div>
+                        </div>
+                        <div class="dropdown-solo">
+                            <div class="form-input rlist">
+                                <select name="year" required>
+						<option value=""> Select year </option>
+						<option value="1"> I </option>
+						<option value="2"> II </option>
 <%
-		if(deg.charAt(0) == 'M')
+		if(deg.charAt(0) == 'B')
 		{
 %>
-							<option value="3"> 3 </option>
+						<option value="3"> III </option>
 <%
 		}
 %>
-						</select>
-					</div>
-<%
+					</select>
+                            </div>
+                        </div>
+                        <%
 	}	
 	catch(Exception e)
 	{
 		out.println(e);
 	}
 %>
-					<div class="form-input pt-30">
-						<input type="submit" name="submit" value="Send Request">
-					</div>
-                                <!-- Forget Password -->
-                                <a href="student_login.jsp" class="registration">Already have an account?<b> Login here </b> </a>
+                            <div class="form-input pt-30">
+                                <input type="submit" name="submit" value="Send Request">
+                            </div>
+                            <!-- Forget Password -->
+                            <a href="student_login.jsp" class="registration">Already have an account?<b> Login here </b> </a>
                 </div>
 
-<%
+                <%
 	// getting all required fields of registration of student for validation
 	String no = request.getParameter("roll_no");
 	String name = request.getParameter("name");
@@ -242,8 +281,8 @@
         <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
 
         <!-- Jquery Plugins, main Jquery -->
-<!--        <script src="./assets/js/plugins.js"></script> -->
-<!--        <script src="./assets/js/main.js"></script> -->
+        <script src="./assets/js/plugins.js"></script>
+        <script src="./assets/js/main.js"></script>
 
     </body>
 
