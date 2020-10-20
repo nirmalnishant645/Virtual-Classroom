@@ -1,4 +1,6 @@
-<!doctype html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" import="java.sql.*"%>
+  <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html class="no-js" lang="zxx">
 
 <head>
@@ -29,6 +31,14 @@
 </head>
 
 <body>
+
+<%
+		if(session.getAttribute("faculty") == null)									// check if faculty is already logged in to the system
+		{
+			response.sendRedirect("faculty_login.jsp");								// if not logged in, take faculty to login page
+		}
+%>
+
     <!-- ? Preloader Start -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
@@ -67,9 +77,9 @@
                                                         <li><a href="">Study Materials</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="#">Q/A Forum</a></li>
+                                                <li><a href="">Q/A Forum</a></li>
                                                 <!-- Button -->
-                                                <li class="button-header"><a href="" class="btn btn3">Log Out</a></li>
+                                                <li class="button-header"><a href="faculty_logout.jsp" class="btn btn3">Log Out</a></li>
                                             </ul>
                                         </nav>
                                     </div>
@@ -96,8 +106,8 @@
                         <div class="row">
                             <div class="col-xl-6 col-lg-7 col-md-12">
                                 <div class="hero__caption">
-                                    <h1 data-animation="fadeInLeft" data-delay="0.2s">Welcome<br>Name</h1>
-                                    <p data-animation="fadeInLeft" data-delay="0.4s">Add new video lectures and study materials, and resolve students' doubts at one place.</p>
+                                    <h1 data-animation="fadeInLeft" data-delay="0.2s">Welcome<br><% out.println(session.getAttribute("faculty")); %></h1>
+                                    <p data-animation="fadeInLeft" data-delay="0.4s">Attend video lectures, skim through study materials and ask doubts at one place.</p>
                                 </div>
                             </div>
                         </div>
