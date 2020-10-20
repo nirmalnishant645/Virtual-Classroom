@@ -46,7 +46,7 @@
 
 
         <main class="login-body">
-            <!-- Login Admin -->
+            <!-- Login Student -->
             <form class="form-default" name="myform" action="student_login.jsp" method="POST">
 
                 <%
@@ -70,11 +70,11 @@
                         </div>
                         <p style="color:red">
                             <%
-		if(session.getAttribute("NotAccepted") != null)
+		if(session.getAttribute("Error") != null)
 		{
-			out.println(session.getAttribute("NotAccepted"));
+			out.println(session.getAttribute("Error"));
 		}
-		if(session.getAttribute("StudentErrorLogin") != null)
+/*		if(session.getAttribute("StudentErrorLogin") != null)
 		{
 			out.println(session.getAttribute("StudentErrorLogin"));
 		}
@@ -82,6 +82,7 @@
 		{
 			out.println(session.getAttribute("Rejected"));
 		}
+*/
 %>
                         </p>
                         <div class="form-input pt-30">
@@ -118,12 +119,13 @@
 		if(rs.next())
 		{
 			// if request is not yet accepted by Admin
-			if(rs.getInt(8) == 0)
+			if(rs.getInt("is_approved") == 0)
 			{
-				session.setAttribute("NotAccepted","Your Request is not yet accepted by Administrator");
+				session.removeAttribute("Error");
+				session.setAttribute("Error","Your Request is not yet accepted by Administrator");
 			}
 			// if request is accepted by Admin
-			else if(rs.getInt(8) == 1)
+			else if(rs.getInt("is_approved") == 1)
 			{
 				session.setAttribute("student",rs.getString(2));
 				response.sendRedirect("student_dashboard.jsp");
@@ -142,12 +144,14 @@
 			// if details are incorrect, display error message
 			if(rs1.next())
 			{
-				session.setAttribute("StudentErrorLogin","Invalid Roll Number / Password");
+				session.removeAttribute("Error");
+				session.setAttribute("Error","Invalid Roll Number / Password");
 			}
 			// if request is rejected, go to home page
 			else
 			{
-				session.setAttribute("Rejected","Your request is rejected by Administrator");
+				session.removeAttribute("Error");
+				session.setAttribute("Error","Your request is rejected by Administrator");
 			}
 		}
 
