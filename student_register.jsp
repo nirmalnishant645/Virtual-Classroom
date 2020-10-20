@@ -120,7 +120,6 @@
 		}
 %>
 					</select>
-                            <br> <br>
                         </div>
                         <%
 		// execute the SQL statement
@@ -140,7 +139,6 @@
 		}
 %>
 					</select>
-                                <br> <br>
                             </div>
                             <div class="form-input">
                                 <select name="year" required>
@@ -156,7 +154,6 @@
 		}
 %>
 					</select>
-                                <br> <br>
                             </div>
                             <%
 	}	
