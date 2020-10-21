@@ -38,7 +38,6 @@
                     document.getElementById("message").innerHTML = "Password not matching";
                 }
             }
-
             function checkDegree() {
                 var select = document.getElementById("degree");
                 var option = select.options[select.selectedIndex];
@@ -48,16 +47,7 @@
 
     <body>
         <!-- ? Preloader Start -->
-        <div id="preloader-active">
-            <div class="preloader d-flex align-items-center justify-content-center">
-                <div class="preloader-inner position-relative">
-                    <div class="preloader-circle"></div>
-                    <div class="preloader-img pere-text">
-                        <img src="assets/img/logo/loder.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <!-- Preloader Start-->
 
 
@@ -65,7 +55,7 @@
 
         <main class="login-body">
             <!-- Login Admin -->
-            <form class="form-default" name="myform" action="student_register.jsp" method="POST" onsubmit="return validate();">
+            <form class="form-default" name="myform" action="student_register.jsp" method="POST">
 
                 <div class="login-form reg">
                     <!-- logo-login -->
@@ -76,7 +66,7 @@
                     <p>*All fields are mandatory</p>
 
                     <div class="form-input">
-                        <input type="text" name="roll_no" placeholder="Roll No" pattern="[0]*[1-9]+" title="Enter valid roll number" required>
+                        <input type="text" name="roll_no" placeholder="Roll No" pattern="[0]*[0-9]+" title="Enter valid roll number" required>
                     </div>
                     <div class="form-input">
                         <input type="text" name="name" placeholder="Full name" pattern="[A-Z a-z]{2,}\s{1}[A-Z a-z]{3,}" title="Enter First Name and Last Name" required>
@@ -91,7 +81,8 @@
                         <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" onkeyup="check();" required>
                         <span id="message"></span>
                     </div>
-                    <%
+
+<%
 	try
 	{
 		// register the driver
@@ -107,69 +98,70 @@
 		ResultSet rs = stmt.executeQuery("select degree from enroll_for group by degree");
 %>
 
-                        <div class="form-input">
-                            <select name="degree" id="degree" required>
-						<option value=""> Select degree </option>
+					<div class="form-input">
+						<select name="degree" id="degree" required>
+							<option value=""> Select degree </option>
 <%
 		// fetch the values of 'degree' available in ResultSet
 		while(rs.next())
 		{
 %>
-						<option value="<%= rs.getString(1) %>"> <%= rs.getString(1) %></option>
+							<option value="<%= rs.getString(1) %>"> <%= rs.getString(1) %></option>
 <%
 		}
 %>
-					</select>
-                        </div>
-                        <%
+						</select>
+					</div>
+<%
 		// execute the SQL statement
 		String deg = "M.Sc";
 		ResultSet r1 = stmt.executeQuery("select course from enroll_for where degree = '" + deg + "'"); 
 %>
-                            <div class="form-input">
-                                <select name="course" required>
-						<option value="Select"> Select course </option>
+					<div class="form-input">
+						<select name="course" required>
+							<option value="Select"> Select course </option>
 <%
 		// fetch the values of 'courses' available in ResultSet
 		while(r1.next())
 		{
 %>
-						<option value="<%= r1.getString(1) %>"> <%= r1.getString(1) %></option>
+							<option value="<%= r1.getString(1) %>"> <%= r1.getString(1) %></option>
 <%
 		}
 %>
-					</select>
-                            </div>
-                            <div class="form-input">
-                                <select name="year" required>
-						<option value=""> Select year </option>
-						<option value="1"> 1 </option>
-						<option value="2"> 2 </option>
+						</select>
+						<br> <br>
+					</div>
+					<div class="form-input">
+						<select name="year" required>
+							<option value=""> Select year </option>
+							<option value="1"> 1 </option>
+							<option value="2"> 2 </option>
 <%
 		if(deg.charAt(0) == 'M')
 		{
 %>
-						<option value="3"> 3 </option>
+							<option value="3"> 3 </option>
 <%
 		}
 %>
-					</select>
-                            </div>
-                            <%
+						</select>
+					</div>
+<%
 	}	
 	catch(Exception e)
 	{
 		out.println(e);
 	}
 %>
-                                <div class="form-input pt-30">
-                                    <input type="submit" name="submit" value="Send Request">
-                                </div>
+					<div class="form-input pt-30">
+						<input type="submit" name="submit" value="Send Request">
+					</div>
                                 <!-- Forget Password -->
                                 <a href="student_login.jsp" class="registration">Already have an account?<b> Login here </b> </a>
                 </div>
 
-                <%
+<%
 	// getting all required fields of registration of student for validation
 	String no = request.getParameter("roll_no");
 	String name = request.getParameter("name");
@@ -178,7 +170,6 @@
 	String degree = request.getParameter("degree");
 	String course = request.getParameter("course");
 	String year = request.getParameter("year");
-
 	try
 	{
 		// register the driver
@@ -197,6 +188,9 @@
 		// close the connection
 		stmt.close();
 		con.close();
+
+		// redirects to home page
+		response.sendRedirect("index.jsp");
 	}
 	catch(Exception e)
 	{
@@ -206,7 +200,6 @@
             </form>
             <!-- /end login form -->
         </main>
-
 
         <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
         <!-- Jquery, Popper, Bootstrap -->
@@ -249,8 +242,8 @@
         <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
 
         <!-- Jquery Plugins, main Jquery -->
-        <script src="./assets/js/plugins.js"></script>
-        <script src="./assets/js/main.js"></script>
+<!--        <script src="./assets/js/plugins.js"></script> -->
+<!--        <script src="./assets/js/main.js"></script> -->
 
     </body>
 

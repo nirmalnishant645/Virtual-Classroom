@@ -27,32 +27,7 @@
         <link rel="stylesheet" href="assets/css/slick.css">
         <link rel="stylesheet" href="assets/css/nice-select.css">
         <link rel="stylesheet" href="assets/css/style.css">
-        <!--
-	<script language="javascript">
-		function validation()
-		{
-			var count=0;
-			for(vari=0;i<admin.chbox.length;i++)
-			{
-				if(admin.chbox[i].checked)
-				{
-					count++;
-				}
-			}
 
-			if(count==0)
-			{
-				alert("check the messages to delete & u had limited msg");
-				//document.msgchbox.checkbox.focus();
-				return false;
-			}
-			else
-			{
-				return true;
-			}
-		}
-	</script>
--->
     </head>
 
     <body>
@@ -150,7 +125,7 @@
                             <div class="accept">Accept / Decline</div>
                         </div>
 
-                        <%
+<%
 		try
 		{
 			// register the driver
@@ -166,6 +141,20 @@
 			// execute the statement
 			ResultSet rs = stmt.executeQuery (sql);
 
+			// for no requests pending 
+			if (rs == null)
+			{
+%>
+				<div class="table-row">
+					<div class="name">
+<%
+						out.println("No Pending request");
+%>
+					</div>
+				</div>
+<%
+			}
+
 			while(rs.next())
 			{
 %>
@@ -177,13 +166,13 @@
                                     <%= rs.getString(2) %>
                                 </div>
                                 <div class="name">
-                                    <%= rs.getString(3) %>
-                                        <%= rs.getString(4) %>
-                                            <%= rs.getString(5) %>
+									<%= rs.getString(3) %>
+									<%= rs.getString(4) %>
+									<%= rs.getString(5) %>
                                 </div>
-                                <div class="accept"><input type="checkbox" name="ad" value="<%=rs.getInt(1)%>"></div>
+                                <div class="accept"><input type="checkbox" name="ad" value="<%= rs.getInt(1)%>"></div>
                             </div>
-                            <%
+<%
 			}
 
 			// close the connection

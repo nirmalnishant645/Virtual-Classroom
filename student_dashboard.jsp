@@ -31,6 +31,14 @@
 </head>
 
 <body>
+
+<%
+		if(session.getAttribute("student") == null)									// check if admin is already student in to the system
+		{
+			response.sendRedirect("student_login.jsp");								// if not logged in, take student to login page
+		}
+%>
+
     <!-- ? Preloader Start -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
